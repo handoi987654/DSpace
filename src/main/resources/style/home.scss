@@ -1,0 +1,181 @@
+@import "base";
+
+%hcard {
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+    -fx-effect: dropshadow(two-pass-box, #10161A, 0, 0.0, 0, 1);
+
+    .title-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 22;
+        -fx-fill: white;
+    }
+
+    .info {
+        -fx-pref-width: 92;
+        -fx-font-family: $light;
+        -fx-font-size: 14;
+        -fx-fill: white;
+    }
+
+    .high-light {
+        -fx-font-family: $regular;
+        -fx-font-size: 16;
+        -fx-fill: #48aff0;
+    }
+
+    .value {
+        -fx-text-alignment: right;
+    }
+}
+
+.home {
+
+    .center-text {
+        -fx-font-family: $light;
+        -fx-font-size: 42;
+        -fx-fill: white;
+    }
+
+    .control-pane {
+        -fx-pref-width: 1118.35;
+        -fx-max-height: 548;
+
+        .nav-button {
+            -fx-pref-width: 424;
+            -fx-pref-height: 156;
+            -fx-background-color: rgba(0, 0, 0, 0.3);
+
+            .text {
+                -fx-font-family: $light;
+                -fx-font-size: 28;
+                -fx-fill: white;
+            }
+
+            &:hover {
+                -fx-background-color: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+
+    .button-text {
+        -fx-font-family: $light;
+        -fx-font-size: 28;
+        -fx-fill: white;
+    }
+}
+
+.project-card {
+    @extend %hcard;
+    -fx-pref-width: 488;
+    -fx-pref-height: 200;
+}
+
+.idea-card {
+    @extend %hcard;
+    -fx-pref-width: 472;
+    -fx-pref-height: 168;
+}
+
+.create-box {
+    -fx-alignment: top-center;
+    -fx-spacing: 16;
+
+    %label {
+        -fx-font-family: $light;
+        -fx-font-size: 22;
+        -fx-text-fill: white;
+    }
+
+    .info-pane {
+        $pref-width: 536;
+        -fx-pref-width: $pref-width;
+        -fx-pref-height: 440;
+
+        .name-label,
+        .description-label {
+            @extend %label;
+        }
+
+        .name-field {
+            -fx-pref-width: $pref-width;
+            -fx-pref-height: 40;
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+            -fx-prompt-text-fill: #BFCCD6;
+            -fx-background-color: rgba(0, 0, 0, 0.6);
+            -fx-background-radius: 3;
+        }
+
+        .description-area {
+            -fx-pref-width: $pref-width;
+            -fx-pref-height: 288;
+            -fx-background-color: rgba(0, 0, 0, 0.6);
+            -fx-text-fill: white;
+            -fx-prompt-text-fill: #BFCCD6;
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-wrap-text: true;
+
+            .content {
+                -fx-background-color: transparent;
+                -fx-line-spacing: 8px;
+            }
+        }
+    }
+
+    .picture-pane {
+        -fx-pref-height: 440;
+
+        .label {
+            @extend %label;
+        }
+
+        .button {
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+            -fx-pref-width: 128;
+            -fx-pref-height: 40;
+            -fx-background-color: #202B33, $overlay-gradient;
+            -fx-background-radius: 3;
+        }
+
+        .ok-button {
+            -fx-font-family: $regular;
+            -fx-font-size: 22;
+            -fx-text-fill: white;
+            -fx-pref-width: 488;
+            -fx-pref-height: 40;
+            -fx-background-color: #137CBD, $overlay-gradient;
+            -fx-background-radius: 3;
+        }
+    }
+}
+
+.create-project-pane {
+    -fx-alignment: center;
+    -fx-spacing: 128;
+
+    .welcome-text {
+        -fx-font-family: $light;
+        -fx-font-size: 28;
+        -fx-fill: white;
+    }
+}
+
+.create-idea-pane {
+    -fx-alignment: center;
+    -fx-spacing: 128;
+
+    .welcome-pane {
+        -fx-max-width: 1040;
+        -fx-pref-height: 32;
+
+        .text {
+            -fx-font-family: $light;
+            -fx-font-size: 28;
+            -fx-fill: white;
+        }
+    }
+}

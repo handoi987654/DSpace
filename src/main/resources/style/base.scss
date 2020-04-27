@@ -1,0 +1,307 @@
+$regular: 'SF Pro Text Regular';
+$light: 'SF Pro Text Light';
+
+$overlay-gradient: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.05));
+
+%combo-box {
+    .list-cell {
+        -fx-text-fill: white;
+        -fx-font-size: 16;
+    }
+
+    .arrow {
+        -fx-background-color: white;
+    }
+
+    .combo-box-popup .list-view {
+        -fx-background-color: #202B33;
+        -fx-text-fill: white;
+
+        .list-cell {
+            -fx-font-size: 16;
+            -fx-padding: 8 16;
+            -fx-text-fill: white;
+            -fx-background-color: transparent;
+        }
+    }
+}
+
+%scroll-pane {
+    -fx-background-color: transparent;
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: as-needed;
+
+    .viewport {
+        -fx-background-color: transparent;
+    }
+
+    .scroll-bar:vertical {
+        -fx-background-color: transparent;
+        -fx-pref-width: 8;
+        -fx-unit-increment: 100;
+
+        .thumb {
+            -fx-background-color: rgba(191, 204, 214, 0.4);
+            -fx-background-radius: 3;
+            -fx-pref-width: 8;
+        }
+
+        .increment-arrow,
+        .decrement-arrow {
+            -fx-max-height: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+%remove-button {
+    -fx-alignment: center;
+    -fx-pref-height: 40;
+    -fx-background-color: #DB3737;
+    -fx-background-radius: 3;
+    -fx-padding: 8 16;
+
+    .text {
+        -fx-font-family: $light;
+        -fx-font-size: 18;
+        -fx-fill: white;
+    }
+}
+
+%text-area {
+    -fx-background-color: transparent;
+    -fx-text-fill: #BFCCD6;
+    -fx-font-family: $regular;
+    -fx-font-size: 14;
+    -fx-wrap-text: true;
+
+    .content {
+        -fx-background-color: transparent;
+        -fx-line-spacing: 8px;
+    }
+}
+
+.radio-button {
+    -fx-text-fill: white;
+    -fx-font-family: $light;
+    -fx-font-size: 14;
+
+    .radio {
+        -fx-min-width: 16;
+        -fx-min-height: 16;
+        -fx-background-color: #394B59;
+        -fx-border-radius: 3;
+    }
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #137CBD;
+
+    .dot {
+        -fx-pref-width: 6;
+        -fx-pref-height: 6;
+        -fx-background-color: white;
+    }
+}
+
+.check-box .box {
+    -fx-pref-width: 24;
+    -fx-pref-height: 24;
+    -fx-background-color: #182026;
+    -fx-background-radius: 3;
+    -fx-border-color: #8A9BA8;
+    -fx-border-radius: 3;
+
+    .mark {
+        -fx-shape: 'M9,16.2,5.5,12.7a.99.99,0,1,0-1.4,1.4l4.19,4.19a1,1,0,0,0,1.41,0L20.3,7.7a.99.99,0,0,0-1.4-1.4Z';
+        -fx-max-width: 16.78;
+        -fx-max-height: 12.58;
+    }
+}
+
+.check-box:selected .box .mark {
+    -fx-background-color: white;
+}
+
+.scroll-pane {
+    @extend %scroll-pane;
+}
+
+.context-menu {
+    -fx-padding: 0;
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+
+    .menu-item {
+        -fx-padding: 0;
+        -fx-background-color: transparent;
+
+        :hover {
+            -fx-background-color: #48AFF0;
+        }
+    }
+
+    .separator:horizontal .line {
+        -fx-border-color: #5C7080;
+        -fx-border-width: 2;
+        -fx-border-insets: 0 8;
+    }
+}
+
+.mini-player {
+    -fx-pref-width: 608;
+    -fx-pref-height: 512;
+    -fx-background-color: #30404d;
+    -fx-background-radius: 0, 3, 0, 0;
+    -fx-effect: dropshadow(two-pass-box, #10161A, 6, 0, 0, 2);
+
+    .playlist-box {
+        @extend %combo-box;
+        -fx-pref-width: 504;
+        -fx-pref-height: 40;
+        -fx-background-color: #394B59, $overlay-gradient;
+        -fx-background-radius: 3;
+
+        .list-cell {
+            -fx-font-size: 22;
+        }
+    }
+
+    .title-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 22;
+        -fx-fill: white;
+    }
+
+    .artist-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 14;
+        -fx-fill: #bfccd6;
+    }
+
+    .song-item {
+        -fx-alignment: center-left;
+        -fx-padding: 16;
+        -fx-pref-width: 576;
+        -fx-pref-height: 48;
+        -fx-background-color: rgba(0, 0, 0, 0.4);
+        -fx-background-radius: 3;
+
+        .title-label {
+            -fx-pref-width: 176;
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+        }
+
+        .artist-label {
+            -fx-font-family: $light;
+            -fx-font-size: 15;
+            -fx-text-fill: #BFCCD6;
+        }
+    }
+}
+
+.tree-view {
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+    -fx-border-color: #8A9BA866;
+    -fx-border-radius: 3;
+    -fx-border-width: 1;
+
+    .tree-cell {
+        -fx-background-color: transparent;
+        -fx-text-fill: white;
+        -fx-font-family: 'SF Pro Text Light';
+        -fx-font-size: 14;
+        -fx-cell-size: 32;
+        -fx-content-display: left;
+        -fx-graphic-text-gap: 8;
+    }
+
+    .arrow {
+        -fx-shape: 'M9.207,13.191l2.778-2.778L9.207,7.636a.714.714,0,0,1,1.009-1.009L13.5,9.913a.713.713,0,0,1,0,1.009l-3.286,3.286a.713.713,0,0,1-1.009,0,.728.728,0,0,1,0-1.017Z';
+        -fx-background-color: white;
+    }
+}
+
+.top-pane {
+    -fx-pref-height: 64;
+
+    .space-text {
+        -fx-fill: white;
+        -fx-font-family: $light;
+        -fx-font-size: 22;
+    }
+
+    .title-box {
+        -fx-alignment: center;
+        -fx-pref-height: 64;
+        -fx-pref-width: 1048;
+
+        .title-text {
+            -fx-fill: white;
+            -fx-font-family: $regular;
+            -fx-font-size: 28;
+        }
+    }
+
+    .back-button:hover {
+        -fx-background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.side-pane {
+
+    .player {
+        -fx-pref-height: 128;
+        -fx-alignment: bottom-center;
+    }
+
+    .nav-button:hover,
+    .play-button:hover,
+    .music-button:hover {
+        -fx-background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.navigation-menu {
+    -fx-background-color: #30404d;
+    -fx-background-radius: 0 0 3 0;
+
+    $pref-item-width: 256;
+
+    .item-box {
+        -fx-pref-width: $pref-item-width;
+        -fx-alignment: center-left;
+
+        .text {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-fill: white;
+        }
+    }
+
+    .menu-option {
+        -fx-pref-width: $pref-item-width;
+        -fx-alignment: center-left;
+
+        .text {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-fill: white;
+        }
+    }
+}
+
+.titled-pane {
+
+    .title {
+        visibility: hidden;
+    }
+
+    .content {
+        -fx-background-color: transparent;
+        -fx-border-color: transparent;
+    }
+}

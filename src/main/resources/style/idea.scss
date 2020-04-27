@@ -1,0 +1,551 @@
+@import "base";
+
+// Preparation
+
+.preparation-pane {
+    -fx-alignment: center;
+    -fx-padding: 32, 128, 0, 64;
+    -fx-spacing: 184;
+
+    .task-box {
+        -fx-pref-width: 464;
+        -fx-spacing: 32;
+
+        .title-text {
+            -fx-font-family: $regular;
+            -fx-font-size: 22;
+            -fx-fill: white;
+        }
+
+        .add-field {
+            -fx-max-width: 448;
+            -fx-background-color: transparent;
+            -fx-border-color: #8A9BA8;
+            -fx-border-radius: 3;
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+            -fx-prompt-text-fill: #BFCCD6;
+        }
+
+        .list-box {
+            -fx-pref-width: 464;
+            -fx-spacing: 16;
+        }
+    }
+
+    .resource-box {
+        -fx-spacing: 32;
+        -fx-pref-width: 448;
+
+        .title-text {
+            -fx-font-family: $regular;
+            -fx-font-size: 22;
+            -fx-fill: white;
+        }
+    }
+}
+
+.preparation-task-item {
+
+    .title-pane {
+        -fx-background-color: #30404D;
+        -fx-background-radius: 3;
+        -fx-pref-width: 448;
+        -fx-pref-height: 40;
+
+        .left-box {
+            -fx-alignment: center-left;
+
+            .title-field {
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+                -fx-text-fill: white;
+                -fx-background-color: transparent;
+            }
+        }
+
+        .right-box {
+            -fx-alignment: center-right;
+            -fx-spacing: 8;
+            -fx-min-height: 24;
+            -fx-max-height: 24;
+
+            .pin-button {
+                -fx-cursor: hand;
+
+                &:hover {
+                    -fx-background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+
+            .drag-button {
+                -fx-pref-width: 24;
+                -fx-pref-height: 24;
+                -fx-cursor: closed-hand;
+                -fx-padding: 0;
+
+                &:hover {
+                    -fx-background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+    }
+
+    .subtask-pane {
+        -fx-padding: 16 32;
+
+        .subtask-box {
+            -fx-spacing: 16;
+
+            .detail-text {
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+                -fx-fill: white;
+            }
+
+            .subtask-item {
+                -fx-background-color: #30404D;
+                -fx-background-radius: 3;
+                -fx-pref-width: 360;
+                -fx-pref-height: 40;
+
+                .title-field {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-text-fill: white;
+                }
+
+                .right-box {
+                    -fx-alignment: center-right;
+                    -fx-spacing: 8;
+                }
+            }
+        }
+
+        .remove-button {
+            @extend %remove-button;
+            -fx-padding: 2 8;
+        }
+    }
+}
+
+.resource-tab {
+    $pref-width: 384;
+    -fx-pref-width: $pref-width;
+
+    .tab-bar {
+        -fx-alignment: bottom-left;
+        -fx-pref-width: $pref-width;
+        -fx-pref-height: 40;
+
+        %tab-box {
+            -fx-pref-width: 128;
+            -fx-max-height: 32;
+            -fx-background-color: #202B33;
+            -fx-background-radius: 3 3 0 0;
+            -fx-border-color: rgba(138, 155, 168, 0.4);
+            -fx-border-width: 1;
+            -fx-border-radius: 3 3 0 0;
+            -fx-alignment: center;
+            -fx-cursor: hand;
+
+            .text {
+                -fx-fill: white;
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+            }
+        }
+
+        .tab-box {
+            @extend %tab-box;
+        }
+
+        .tab-box-focused {
+            @extend %tab-box;
+            -fx-max-height: 40;
+            -fx-background-color: #30404D;
+            -fx-border-color: transparent;
+        }
+    }
+
+    .tab-pane {
+        -fx-tab-max-height: 0;
+        -fx-pref-width: $pref-width;
+        -fx-pref-height: 120;
+        -fx-background-color: #30404D;
+        -fx-background-radius: 0 0 3 3;
+        -fx-padding: 0 8 8 8;
+
+        .tab-header-area {
+            visibility: hidden;
+        }
+
+        .link-pane {
+            -fx-pref-width: 384;
+            -fx-pref-height: 104;
+
+            .link-area {
+                @extend %text-area;
+                -fx-background-color: #182026;
+                -fx-background-radius: 3;
+            }
+        }
+
+        .file-pane {
+
+            .ok-button {
+                -fx-background-color: #137CBD, $overlay-gradient;
+                -fx-background-radius: 3;
+            }
+
+            .file-grid {
+                -fx-hgap: 8;
+
+                .browse-box {
+                    -fx-alignment: center;
+                    -fx-pref-width: 96;
+                    -fx-pref-height: 104;
+                    -fx-background-color: #202B33;
+                    -fx-background-radius: 3;
+
+                    .browse-text {
+                        -fx-font-family: $light;
+                        -fx-font-size: 12;
+                        -fx-fill: #BFCCD6;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.resource-list {
+    -fx-pref-width: 488;
+    -fx-spacing: 16;
+}
+
+.question-pane {
+    -fx-alignment: top-center;
+    -fx-padding: 72 64 0 0;
+    -fx-spacing: 184;
+
+    .pane {
+        $width: 448;
+        -fx-pref-width: $width;
+        -fx-spacing: 32;
+
+        .add-field {
+            -fx-background-color: transparent;
+            -fx-border-color: #8A9BA8;
+            -fx-border-radius: 3;
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+            -fx-prompt-text-fill: #BFCCD6;
+        }
+
+        .question-card {
+
+            .question-box {
+                -fx-alignment: center-left;
+                -fx-background-color: #30404D;
+                -fx-background-radius: 3;
+                -fx-pref-width: $width;
+
+                .question-field {
+                    -fx-background-color: transparent;
+                    -fx-font-family: $regular;
+                    -fx-font-size: 16;
+                    -fx-text-fill: white;
+                }
+            }
+
+            .anchorpane {
+                -fx-padding: 24 0 0 32;
+                -fx-pref-width: $width;
+
+                .vbox {
+                    -fx-spacing: 16;
+
+                    .add-option-field {
+                        -fx-background-color: transparent;
+                        -fx-font-family: $light;
+                        -fx-font-size: 14;
+                        -fx-text-fill: white;
+                        -fx-prompt-text-fill: #BFCCD6;
+                    }
+                }
+
+                .delete-button {
+                    -fx-background-color: #C23030, $overlay-gradient;
+                    -fx-background-radius: 3;
+                }
+
+                .make-note-button {
+                    -fx-background-color: #137CBD, $overlay-gradient;
+                    -fx-background-radius: 3;
+                }
+            }
+        }
+    }
+}
+
+.idea-setting-pane {
+    -fx-pref-height: 512;
+    -fx-padding: 16, 472, 0, 408;
+    -fx-spacing: 64;
+    -fx-alignment: top-center;
+
+    .title-box {
+        -fx-max-height: 32;
+        -fx-alignment: center;
+        -fx-background-color: transparent;
+
+        .name-field {
+            -fx-pref-width: 96;
+            -fx-font-family: $light;
+            -fx-font-size: 28;
+            -fx-padding: 0;
+            -fx-text-fill: white;
+            -fx-background-color: transparent;
+        }
+
+    }
+
+    .detail-pane {
+        -fx-pref-height: 280;
+        -fx-max-width: 976;
+
+        .description-label,
+        .picture-label {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-text-fill: white;
+        }
+
+        .description-area {
+            @extend %text-area;
+            -fx-pref-width: 656;
+            -fx-pref-height: 240;
+            -fx-padding: 0;
+            -fx-border-color: #48AFF0;
+            -fx-border-radius: 3;
+        }
+
+        .gallery-button,
+        .image-button {
+            -fx-pref-width: 128;
+            -fx-pref-height: 40;
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+            -fx-background-color: #202B33, $overlay-gradient;
+        }
+    }
+
+    .control-box {
+        -fx-alignment: center;
+        -fx-spacing: 48;
+
+        .remove-button {
+            @extend %remove-button;
+            -fx-max-width: 208;
+        }
+
+        .transfer-button {
+            -fx-padding: 8;
+            -fx-background-color: #137CBD, $overlay-gradient;
+            -fx-background-radius: 3;
+
+            .text {
+                -fx-font-family: $regular;
+                -fx-font-size: 18;
+                -fx-fill: white;
+            }
+        }
+    }
+}
+
+.transfer-pane {
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-alignment: center;
+
+    .main-box {
+        -fx-max-width: 1142;
+        -fx-padding: 16;
+        -fx-background-radius: 3;
+        -fx-alignment: center;
+
+        //noinspection CssInvalidPseudoSelector
+        &:up {
+            -fx-background-color: #30404d, $overlay-gradient;
+        }
+
+        //noinspection CssInvalidPseudoSelector
+        &:down {
+            -fx-background-color: #182026, $overlay-gradient;
+        }
+
+        .title-text {
+            -fx-font-family: $regular;
+            -fx-font-size: 28;
+            -fx-fill: white;
+        }
+
+        .scroll-pane {
+            -fx-pref-height: 464;
+
+            .scroll-bar:vertical .thumb {
+                -fx-background-color: transparent;
+            }
+
+            .scroll-box {
+                -fx-pref-width: 1110;
+                -fx-alignment: top-center;
+
+                .form-pane {
+                    -fx-max-height: 384;
+
+                    .name-box,
+                    .description-box {
+                        -fx-pref-width: 536;
+                        -fx-spacing: 16;
+
+                        .label {
+                            -fx-font-family: $light;
+                            -fx-font-size: 22;
+                            -fx-text-fill: #f5f8fa;
+                        }
+
+                        .text-field {
+                            -fx-background-color: rgba(0, 0, 0, 0.4);
+                            -fx-background-radius: 3;
+                            -fx-font-size: 16;
+                            -fx-font-family: $light;
+                            -fx-text-fill: white;
+                            -fx-prompt-text-fill: #bfccd6;
+                        }
+
+                        .text-area {
+                            -fx-pref-height: 232;
+                            -fx-font-size: 16;
+                            -fx-font-family: $light;
+                            -fx-text-fill: white;
+                            -fx-prompt-text-fill: #bfccd6;
+                            -fx-background-color: transparent;
+
+                            .content {
+                                -fx-background-color: rgba(0, 0, 0, 0.4);
+                                -fx-background-radius: 3;
+                            }
+                        }
+                    }
+
+                    .image-pane {
+
+                        .label {
+                            -fx-font-family: $light;
+                            -fx-font-size: 22;
+                            -fx-text-fill: #f5f8fa;
+                        }
+
+                        .button {
+                            -fx-font-family: $regular;
+                            -fx-font-size: 18;
+                            -fx-text-fill: #f5f8fa;
+                            -fx-pref-width: 128;
+                            -fx-pref-height: 32;
+                            -fx-background-color: #202B33, $overlay-gradient;
+                            -fx-background-radius: 3;
+                        }
+                    }
+                }
+
+                .rsrc-text {
+                    -fx-font-family: $light;
+                    -fx-font-size: 22;
+                    -fx-fill: #f5f8fa;
+                }
+
+                .rsrc-grid {
+                    -fx-pref-width: 1040;
+                    -fx-pref-height: 360;
+
+                    .rsrc-card {
+                        -fx-pref-height: 160;
+                    }
+                }
+            }
+        }
+
+        .action-pane {
+
+            .cancel-button {
+                -fx-background-color: #394B59, $overlay-gradient;
+                -fx-background-radius: 3;
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+                -fx-text-fill: #f5f8fa;
+                -fx-pref-width: 128;
+                -fx-pref-height: 40;
+            }
+
+            .ok-button {
+                -fx-background-color: #137CBD, $overlay-gradient;
+                -fx-background-radius: 3;
+                -fx-font-family: $regular;
+                -fx-font-size: 22;
+                -fx-text-fill: white;
+                -fx-pref-width: 488;
+                -fx-pref-height: 40;
+            }
+        }
+    }
+}
+
+.rsrc-card {
+    -fx-min-width: 488;
+    -fx-padding: 8;
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+
+    .title-field {
+        -fx-background-color: transparent;
+        -fx-font-family: $regular;
+        -fx-font-size: 16;
+        -fx-text-fill: white;
+    }
+
+    .domain-text {
+        -fx-font-family: $light;
+        -fx-font-size: 12;
+        -fx-fill: #48AFF0;
+    }
+
+    .meta-text {
+        -fx-font-family: $light;
+        -fx-font-size: 12;
+        -fx-fill: white;
+        -fx-line-spacing: 9;
+
+    }
+
+    .file-grid {
+        -fx-hgap: 8;
+
+        .browse-box {
+            -fx-alignment: center;
+            -fx-pref-width: 96;
+            -fx-min-height: 104;
+            -fx-background-color: #202B33;
+            -fx-background-radius: 3;
+
+            .browse-text {
+                -fx-font-family: $light;
+                -fx-font-size: 12;
+                -fx-fill: #BFCCD6;
+            }
+        }
+    }
+}

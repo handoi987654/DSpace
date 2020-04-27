@@ -1,0 +1,649 @@
+@import "base";
+
+$bg-color: rgba(0, 0, 0, 0.4);
+
+.music {
+
+    .main-pane {
+
+        .top-box {
+            -fx-alignment: center;
+            -fx-spacing: 8;
+
+            .welcome-pane {
+                -fx-max-width: 1856;
+                -fx-background-color: $bg-color;
+                -fx-background-radius: 3;
+
+                .ltext, .rtext {
+                    -fx-font-family: $regular;
+                    -fx-font-size: 28;
+                    -fx-fill: #f5f8fa;
+                }
+
+                .mtext {
+                    -fx-font-family: $regular;
+                    -fx-font-size: 32;
+                    -fx-fill: #f5f8fa;
+                }
+            }
+        }
+
+        .side-box {
+            -fx-alignment: top-right;
+            -fx-spacing: 32;
+            -fx-padding: 32 0 0 32;
+
+            .side-button {
+                -fx-background-color: $bg-color;
+                -fx-background-radius: 3;
+            }
+
+            .side-button:hover {
+                -fx-background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+}
+
+.music-pane,
+.playlist-pane {
+    -fx-alignment: top-center;
+    -fx-spacing: 16;
+    -fx-padding: 32 96 0 0;
+
+    .add-button {
+        -fx-background-color: $bg-color;
+        -fx-background-radius: 3;
+        -fx-max-height: 40;
+
+        &:hover {
+            -fx-background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .box {
+        -fx-spacing: 16;
+        -fx-pref-width: 352;
+
+        .playlist-item {
+            -fx-background-color: $bg-color;
+            -fx-background-radius: 3;
+
+            .icon {
+                -fx-pref-width: 19;
+                -fx-pref-height: 15;
+                -fx-background-color: white;
+            }
+
+            .title-field {
+                -fx-text-fill: white;
+                -fx-font-family: $light;
+                -fx-font-size: 22;
+                -fx-background-color: transparent;
+            }
+
+            .song-count {
+                -fx-font-family: $light;
+                -fx-font-size: 16;
+                -fx-fill: #bfccd6;
+            }
+        }
+
+        .playlist-item:selected {
+            -fx-border-color: white;
+            -fx-border-radius: 3;
+        }
+    }
+}
+
+.music-list-pane {
+
+    .search-box {
+        -fx-alignment: center-left;
+        -fx-padding: 0 0 0 16;
+        -fx-spacing: 40;
+        -fx-pref-width: 704;
+        -fx-pref-height: 40;
+        -fx-background-color: $bg-color;
+        -fx-background-radius: 3;
+
+        .search-icon {
+            -fx-pref-width: 16;
+            -fx-max-height: 16;
+            -fx-background-color: white;
+        }
+
+        .search-field {
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+            -fx-prompt-text-fill: #bfccd6;
+            -fx-background-color: transparent;
+            -fx-pref-width: 588;
+        }
+    }
+
+    .list-box {
+        -fx-spacing: 16;
+
+        .song-item {
+            -fx-pref-width: 704;
+            -fx-pref-height: 48;
+            -fx-background-color: $bg-color;
+            -fx-background-radius: 3;
+
+            .node-icon {
+                -fx-background-color: white;
+                -fx-pref-width: 16;
+                -fx-pref-height: 16;
+            }
+
+            .title-text {
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+                -fx-fill: white;
+            }
+
+            .artist-text {
+                -fx-font-family: $light;
+                -fx-font-size: 16;
+                -fx-fill: #bfccd6;
+            }
+
+            .option-button:hover {
+                -fx-background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+
+    .option-item {
+        -fx-padding: 16;
+
+        .label {
+            -fx-text-fill: white;
+        }
+    }
+
+    .option-item:hover {
+        -fx-background-color: #48AFF0;
+    }
+
+}
+
+.metadata-pane {
+    -fx-min-width: 360;
+    -fx-alignment: top-center;
+    -fx-spacing: 16;
+
+    .cover-pane {
+        -fx-max-width: 248;
+        -fx-background-radius: 3;
+
+        .cover-view {
+            -fx-effect: dropshadow(two-pass-box, #10161A, 0, 0.0, 0, 1);
+        }
+
+        .picture-button {
+            -fx-background-color: $bg-color;
+            -fx-background-radius: 3;
+        }
+
+        .picture-button:hover {
+            -fx-background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .edit-box {
+        -fx-spacing: 8;
+
+        .label {
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+        }
+
+        .field {
+            -fx-background-color: $bg-color;
+            -fx-background-radius: 3;
+            -fx-padding: 8;
+            -fx-font-family: $regular;
+            -fx-text-fill: white;
+            -fx-font-size: 18;
+            -fx-prompt-text-fill: #bfccd6;
+        }
+    }
+
+    .save-button {
+        -fx-background-color: #137CBD, $overlay-gradient;
+        -fx-background-radius: 3;
+        -fx-max-width: 152;
+        -fx-pref-height: 40;
+        -fx-alignment: center;
+
+        .save-text {
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-fill: white;
+        }
+
+        .check-region {
+            -fx-pref-width: 17;
+            -fx-max-height: 13;
+            -fx-background-color: white;
+        }
+    }
+}
+
+.view-pane {
+    -fx-background-color: #182026;
+
+    .back-button {
+        -fx-max-width: 64;
+        -fx-max-height: 64;
+
+        &:hover {
+            -fx-background-color: rgba(255, 255, 255, 0.3);
+            -fx-background-radius: 0 0 3 0;
+        }
+    }
+
+    .music-box {
+        -fx-alignment: center;
+        -fx-pref-width: 968;
+
+        .lyric-pane {
+            $width: 656;
+            -fx-pref-width: $width;
+            -fx-max-height: 840;
+
+            .lyric-box {
+                -fx-pref-width: $width;
+                -fx-alignment: center;
+                -fx-spacing: 32;
+
+                .lyric-text {
+                    -fx-font-family: $light;
+                    -fx-font-size: 22;
+                }
+            }
+        }
+
+    }
+}
+
+.player-pane {
+    -fx-background-color: #293742;
+    -fx-pref-height: 112px;
+
+    .player-box {
+        -fx-spacing: 32;
+        -fx-alignment: center-left;
+
+        .previous-button,
+        .next-button {
+            -fx-max-height: 16;
+        }
+
+        .play-button {
+            -fx-max-height: 32;
+        }
+
+        .box {
+            $width: 416;
+            -fx-pref-width: $width;
+            -fx-spacing: 8;
+            -fx-padding: 8 0 0 0;
+
+            .title-text {
+                -fx-font-family: $regular;
+                -fx-font-size: 22;
+                -fx-fill: #f5f8fa;
+            }
+
+            .artist-text {
+                -fx-font-family: $regular;
+                -fx-font-size: 22;
+                -fx-fill: #bfccd6;
+            }
+
+            .slider-pane {
+
+                .progress-bar {
+                    -fx-pref-width: $width;
+                    -fx-indeterminate-bar-flip: false;
+                    -fx-indeterminate-bar-escape: false;
+                    -fx-indeterminate-bar-animation-time: 0;
+
+                    .track {
+                        -fx-background-color: rgba(16, 22, 26, 0.5);
+                        -fx-background-radius: 3;
+                    }
+
+                    .bar {
+                        -fx-background-color: #137cbd;
+                        -fx-background-radius: 3;
+                        -fx-background-insets: 0;
+                        -fx-padding: 3;
+                    }
+                }
+
+                .slider {
+
+                    .track {
+                        -fx-background-color: transparent;
+                    }
+
+                    .thumb {
+                        -fx-background-color: white;
+                        -fx-max-width: 16;
+                        -fx-max-height: 16;
+                    }
+                }
+            }
+
+            .time-text {
+                -fx-font-family: $light;
+                -fx-font-size: 16;
+                -fx-fill: #f5f8fa;
+            }
+        }
+    }
+}
+
+.import-music-pane {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-alignment: center;
+
+    $width: 1008;
+
+    .title-box {
+        -fx-max-width: $width;
+        -fx-pref-height: 40;
+        -fx-background-color: #30404d;
+        -fx-background-radius: 3 3 0 0;
+        -fx-alignment: center;
+
+        .title-text {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-fill: #f5f8fa;
+        }
+    }
+
+    .scroll-pane {
+        $height: 560;
+        -fx-padding: 0 0 0 1;
+        -fx-max-width: $width + 2;
+        -fx-pref-height: $height;
+
+        .scroll-bar:vertical {
+            -fx-background-color: #202B33;
+        }
+
+        .music-grid {
+            -fx-padding: 32 48;
+            -fx-pref-width: $width;
+            -fx-pref-height: $height;
+            -fx-background-color: #202B33;
+            -fx-hgap: 48;
+            -fx-vgap: 32;
+
+            .add-box {
+                -fx-pref-width: 432;
+                -fx-pref-height: 152;
+                -fx-background-color: #30404d;
+                -fx-background-radius: 3;
+                -fx-alignment: center;
+                -fx-spacing: 16;
+
+                .add-button {
+                    -fx-pref-width: 128;
+                    -fx-max-height: 32;
+                    -fx-spacing: 8;
+                    -fx-padding: 8;
+                    -fx-background-color: #202B33, $overlay-gradient;
+                    -fx-background-radius: 3;
+                    -fx-alignment: center-left;
+
+                    .title-text {
+                        -fx-font-family: $light;
+                        -fx-font-size: 16;
+                        -fx-fill: white;
+                    }
+                }
+            }
+
+            .music-card {
+                -fx-pref-width: 432;
+                -fx-pref-height: 152;
+                -fx-background-color: #30404d;
+                -fx-background-radius: 3;
+
+                .title-field {
+                    -fx-background-color: transparent;
+                    -fx-font-family: $regular;
+                    -fx-font-size: 22;
+                    -fx-text-fill: white;
+                    -fx-padding: 8;
+                }
+
+                .artist-field {
+                    -fx-background-color: transparent;
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-text-fill: #bfccd6;
+                }
+
+                .remove-path {
+                    -fx-fill: white;
+                    -fx-cursor: hand;
+                }
+            }
+
+            .retrieving-card {
+                -fx-background-color: #30404d;
+                -fx-background-radius: 3;
+                -fx-pref-width: 432;
+                -fx-pref-height: 152;
+                -fx-spacing: 24;
+                -fx-alignment: top-center;
+
+                .title-text {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-fill: white;
+                }
+
+                .bar {
+                    -fx-max-width: 304;
+                    -fx-pref-height: 8;
+                    -fx-background-color: rgba(0, 0, 0, 0.4);
+                    -fx-background-radius: 3;
+                    -fx-indeterminate-bar-flip: false;
+                    -fx-indeterminate-bar-escape: false;
+                    -fx-indeterminate-bar-animation-time: 0;
+
+                    .track {
+                        -fx-background-color: rgba(16, 22, 26, 0.5);
+                        -fx-background-radius: 3;
+                    }
+
+                    .bar {
+                        -fx-background-color: linear-gradient(to bottom right, reflect, #0E5A8A, #137cbd);
+                        -fx-background-radius: 3;
+                        -fx-background-insets: 0;
+                        -fx-padding: 3;
+                    }
+                }
+            }
+        }
+    }
+
+    .action-pane {
+        -fx-max-width: $width;
+        -fx-padding: 16;
+        -fx-background-color: #30404d;
+        -fx-background-radius: 0 0 3 3;
+
+        %button {
+            -fx-pref-width: 128;
+            -fx-pref-height: 40;
+            -fx-text-fill: white;
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-background-radius: 3;
+        }
+
+        .cancel-button {
+            @extend %button;
+            -fx-background-color: #202B33, $overlay-gradient;
+        }
+
+        .ok-button {
+            @extend %button;
+            -fx-background-color: #137CBD, $overlay-gradient;
+        }
+    }
+}
+
+.create-playlist-pane {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-alignment: center;
+
+    $width: 455;
+
+    .title-pane {
+        -fx-max-width: $width;
+        -fx-pref-height: 56;
+        -fx-background-color: #30404d;
+        -fx-background-radius: 3 3 0 0;
+
+        .title-label {
+            -fx-font-family: $light;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+        }
+
+        .title-field {
+            -fx-pref-width: $width;
+            -fx-background-color: transparent;
+            -fx-font-family: $light;
+            -fx-font-size: 24;
+            -fx-text-fill: white;
+            -fx-alignment: center;
+        }
+    }
+
+    .browse-box {
+        -fx-max-width: $width;
+        -fx-pref-height: 544;
+        -fx-spacing: 16;
+        -fx-padding: 16;
+        -fx-background-color: #202B33;
+
+        .search-box {
+            -fx-pref-height: 40;
+            -fx-alignment: center-left;
+            -fx-spacing: 24;
+            -fx-background-color: rgba(0, 0, 0, 0.4);
+            -fx-background-radius: 3;
+
+            .search-path {
+                -fx-start-margin: 16;
+                -fx-fill: white;
+                -fx-pref-width: 17;
+                -fx-max-height: 17;
+            }
+
+            .search-field {
+                -fx-background-color: transparent;
+                -fx-prompt-text-fill: #bfccd6;
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+                -fx-text-fill: white;
+            }
+        }
+
+        .list-box {
+            -fx-spacing: 24;
+        }
+    }
+
+    .action-pane {
+        -fx-max-width: $width;
+        -fx-padding: 16;
+        -fx-background-color: #30404d;
+        -fx-background-radius: 0 0 3 3;
+
+        %button {
+            -fx-pref-width: 128;
+            -fx-pref-height: 40;
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-text-fill: white;
+        }
+
+        .cancel-button {
+            @extend %button;
+            -fx-background-color: #182026, $overlay-gradient;
+        }
+
+        .ok-button {
+            @extend %button;
+            -fx-background-color: #137CBD, $overlay-gradient;
+        }
+    }
+}
+
+.current-playlist {
+    -fx-pref-width: 456;
+    -fx-pref-height: 416;
+    -fx-background-color: #30404d;
+    -fx-background-radius: 3 0 3 3;
+    -fx-padding: 16 0 16 16;
+
+    .title-text {
+        -fx-font-family: $light;
+        -fx-font-size: 24;
+        -fx-fill: #F5F8FA;
+    }
+
+    .loop-button,
+    .shuffle-button, {
+        -fx-background-color: rgba(0, 0, 0, 0.4);
+        -fx-background-radius: 3;
+
+        &:hover {
+            -fx-background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .scroll-pane {
+        $width: 440;
+        -fx-pref-width: $width;
+        -fx-pref-height: 312;
+
+        .box {
+            -fx-spacing: 16;
+            -fx-pref-width: $width;
+
+            .music-item {
+                -fx-background-color: rgba(0, 0, 0, 0.4);
+                -fx-background-radius: 3;
+
+                .song-title {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-fill: white;
+                }
+
+                .song-artist {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-fill: #bfccd6;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,145 @@
+@import "style/base";
+
+.task-widget {
+    -fx-background-color: transparent;
+    -fx-background-radius: 3;
+
+    .title-pane {
+        -fx-padding: 16;
+        -fx-background-color: #30404D;
+        -fx-effect: dropshadow(two-pass-box, rgba(16, 22, 26, 0.4), 10, 0, 0, 2);
+
+        .left-box {
+            -fx-pref-height: 24;
+            -fx-alignment: center-left;
+            -fx-spacing: 8;
+
+            .label-text {
+                -fx-font-family: $light;
+                -fx-font-size: 22;
+                -fx-fill: white;
+            }
+
+            .title-text {
+                -fx-font-family: $regular;
+                -fx-font-size: 22;
+                -fx-fill: white;
+            }
+        }
+
+        .right-box {
+            -fx-pref-height: 32;
+            -fx-alignment: center-right;
+        }
+    }
+
+    .subtask-box {
+        -fx-spacing: 16;
+        -fx-padding: 32;
+        -fx-background-color: #202B33;
+
+        .subtask-widget-card {
+            -fx-padding: 8;
+            -fx-pref-height: 40;
+            -fx-background-color: #30404D;
+            -fx-background-radius: 3;
+            -fx-effect: dropshadow(two-pass-box, rgba(16, 22, 26, 0.4), 10, 0, 0, 2);
+
+            .title-box {
+                -fx-alignment: center;
+
+                .text {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-fill: white;
+                }
+            }
+        }
+    }
+
+    .deadline-pane {
+        -fx-padding: 16;
+        -fx-background-color: #30404D;
+        -fx-effect: dropshadow(two-pass-box, rgba(16, 22, 26, 0.4), 10, 0, 0, 2);
+
+        .deadline-text {
+            -fx-font-family: $regular;
+            -fx-font-size: 22;
+            -fx-fill: #48AFF0;
+        }
+    }
+}
+
+.music-widget {
+    -fx-background-color: transparent;
+    -fx-pref-width: 320;
+
+    .control-pane {
+        -fx-padding: 8;
+        -fx-opacity: 0;
+
+        .control-button {
+            -fx-background-color: rgba(0, 0, 0, 0.3);
+
+            &:hover {
+                -fx-background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        &:hover {
+            -fx-opacity: 1;
+        }
+    }
+}
+
+.current-playlist {
+    -fx-pref-width: 456;
+    -fx-pref-height: 416;
+    -fx-background-color: #30404d;
+    -fx-background-radius: 3 0 3 3;
+    -fx-padding: 16 0 16 16;
+
+    .title-text {
+        -fx-font-family: $light;
+        -fx-font-size: 24;
+        -fx-fill: #F5F8FA;
+    }
+
+    .loop-button,
+    .shuffle-button, {
+        -fx-background-color: rgba(0, 0, 0, 0.4);
+        -fx-background-radius: 3;
+
+        &:hover {
+            -fx-background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .scroll-pane {
+        $width: 440;
+        -fx-pref-width: $width;
+        -fx-pref-height: 312;
+
+        .box {
+            -fx-spacing: 16;
+            -fx-pref-width: $width;
+
+            .music-item {
+                -fx-background-color: rgba(0, 0, 0, 0.4);
+                -fx-background-radius: 3;
+
+                .song-title {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-fill: white;
+                }
+
+                .song-artist {
+                    -fx-font-family: $light;
+                    -fx-font-size: 16;
+                    -fx-fill: #bfccd6;
+                }
+            }
+        }
+    }
+}

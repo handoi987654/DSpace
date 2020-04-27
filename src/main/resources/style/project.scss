@@ -1,0 +1,925 @@
+@import "base";
+
+.ppane {
+    -fx-alignment: top-center;
+    -fx-padding: 24, 420, 32, 372;
+    -fx-spacing: 16;
+
+    .content-scroll-pane {
+        @extend %scroll-pane;
+        -fx-padding: 0 0 0 12;
+        -fx-max-width: 1072;
+        -fx-max-height: 952;
+
+        .content-box {
+            -fx-alignment: top-center;
+            -fx-pref-width: 1056;
+            -fx-spacing: 16;
+        }
+    }
+
+    .adding-box {
+        -fx-alignment: center;
+        -fx-max-width: 1048;
+        -fx-max-height: 48;
+        -fx-border-color: #8A9BA8;
+        -fx-border-radius: 3;
+
+        .field {
+            -fx-alignment: center;
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-background-color: transparent;
+            -fx-text-fill: #BFCCD6;
+        }
+    }
+}
+
+// RoadMap
+
+.roadmap-tab {
+    $width: 1048;
+    -fx-pref-width: $width;
+
+    .tag-menu {
+        -fx-background-color: #182026;
+
+        .item-box {
+            -fx-pref-width: 200;
+            -fx-padding: 8;
+            -fx-alignment: center-left;
+
+            .title-text {
+                -fx-fill: white;
+                -fx-font-family: $light;
+                -fx-font-size: 14;
+            }
+        }
+    }
+
+    .title-tab {
+        $height: 48;
+        -fx-background-color: #30404D;
+        -fx-background-radius: 3;
+        -fx-pref-height: $height;
+        -fx-pref-width: $width;
+        -fx-cursor: hand;
+
+        .hbox {
+            -fx-alignment: center;
+            -fx-pref-height: $height;
+
+            .text {
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+                -fx-fill: #F5F8FA;
+            }
+        }
+    }
+
+    .content-tab {
+
+        .title {
+            visibility: hidden;
+        }
+
+        *.content {
+            -fx-background-color: transparent;
+            -fx-border-color: transparent;
+
+            .content-box {
+                -fx-pref-width: $width;
+                -fx-spacing: 16;
+                -fx-alignment: top-center;
+
+                .task-box {
+                    -fx-alignment: center;
+                    -fx-spacing: 16;
+                }
+
+                .remove-button {
+                    @extend %remove-button;
+                    -fx-padding: 8, 24;
+                }
+            }
+        }
+    }
+}
+
+.subtask-item {
+    -fx-pref-width: 440;
+    -fx-pref-height: 56;
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+
+    .title-field {
+        -fx-pref-height: 40;
+        -fx-font-family: $light;
+        -fx-font-size: 22;
+        -fx-text-fill: white;
+        -fx-background-color: transparent;
+    }
+}
+
+.task-card {
+    -fx-pref-width: 296;
+    -fx-pref-height: 128;
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+    -fx-effect: dropshadow(two-pass-box, rgba(16, 22, 26, 0.4), 10, 0, 0, 2);
+
+    .title-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 18;
+        -fx-fill: white;
+    }
+
+    .amount-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 14;
+        -fx-fill: #BFCCD6;
+    }
+
+    .deadline-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 12;
+        -fx-fill: #F5F8FA;
+    }
+}
+
+.task-list-pane {
+    -fx-pref-width: 328;
+    -fx-spacing: 8;
+    -fx-padding: 16;
+    -fx-background-color: #202B33;
+    -fx-background-radius: 3;
+
+    .title-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 22;
+        -fx-fill: white;
+    }
+
+    .add-box {
+        -fx-alignment: center;
+        -fx-pref-width: 196;
+        -fx-pref-height: 56;
+        -fx-background-color: #30404D;
+        -fx-background-radius: 3;
+        -fx-effect: dropshadow(one-pass-box, rgba(16, 22, 26, 0.4), 10, 0, 0, 2);
+    }
+}
+
+.task-note-card {
+    -fx-pref-width: 416;
+    -fx-pref-height: 120;
+    -fx-background-color: #30404D;
+    -fx-background-radius: 3;
+
+    .content-area {
+        -fx-text-fill: white;
+        -fx-background-color: transparent;
+        -fx-pref-width: 368;
+        -fx-pref-height: 72;
+    }
+}
+
+// Resource
+
+.resource-content {
+    $width: 1048;
+    -fx-pref-width: $width;
+
+    .title-box {
+        -fx-alignment: center;
+        -fx-cursor: hand;
+        -fx-pref-width: $width;
+        -fx-pref-height: 48;
+        -fx-background-color: #30404D;
+        -fx-background-radius: 3;
+
+        .text {
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-fill: #F5F8FA;
+        }
+    }
+
+    .content-pane {
+
+        .title {
+            visibility: hidden;
+        }
+
+        .content {
+            -fx-background-color: transparent;
+            -fx-border-color: transparent;
+        }
+    }
+}
+
+.repo-content {
+
+    .version-box {
+        @extend %combo-box;
+        -fx-pref-width: 200;
+        -fx-pref-height: 40;
+        -fx-background-color: #394B59, $overlay-gradient;
+        -fx-background-radius: 3;
+
+        .arrow-button .arrow {
+            -fx-pref-width: 8;
+            -fx-pref-height: 12;
+            -fx-shape: 'M4,12a1,1,0,0,1-.709-.29l-3-3A1,1,0,0,1,1,7H7a1,1,0,0,1,.71,1.71l-3,3A1,1,0,0,1,4,12ZM7,5H1A1,1,0,0,1,.29,3.29l3-3A1.014,1.014,0,0,1,4.71.29l3,3A1,1,0,0,1,7,5Z';
+            -fx-fill: #BFCCD6;
+        }
+    }
+
+    .remove-button {
+        @extend %remove-button;
+    }
+}
+
+.repo-detail {
+    -fx-pref-width: 400;
+    -fx-pref-height: 88;
+
+    .repo-name {
+        -fx-font-family: $regular;
+        -fx-font-size: 22;
+        -fx-max-height: 26;
+        -fx-text-fill: #F5F8FA;
+        -fx-background-color: transparent;
+
+        :disabled {
+            -fx-opacity: 1;
+        }
+    }
+
+    .text-flow {
+        -fx-pref-width: 264;
+        -fx-pref-height: 24;
+
+        .repo-text {
+            -fx-fill: #BFCCD6;
+        }
+
+        .hyperlink {
+            -fx-text-fill: #48AFF0;
+        }
+    }
+
+    .language-text {
+        -fx-fill: #BFCCD6;
+    }
+}
+
+.repo-tab {
+    $pref-width: 1048;
+    -fx-pref-width: $pref-width;
+
+    .tab-bar {
+        -fx-alignment: bottom-left;
+        -fx-pref-width: $pref-width;
+        -fx-pref-height: 56;
+
+        %tab-box {
+            -fx-pref-width: 176;
+            -fx-max-height: 48;
+            -fx-background-color: #202B33;
+            -fx-background-radius: 3 3 0 0;
+            -fx-border-color: rgba(138, 155, 168, 0.4);
+            -fx-border-width: 1;
+            -fx-border-radius: 3 3 0 0;
+            -fx-alignment: center;
+            -fx-cursor: hand;
+
+            .text {
+                -fx-fill: white;
+                -fx-font-family: $regular;
+                -fx-font-size: 16;
+            }
+        }
+
+        .tab-box {
+            @extend %tab-box;
+        }
+
+        .tab-box-focused {
+            @extend %tab-box;
+            -fx-max-height: 56;
+            -fx-background-color: #30404D;
+        }
+    }
+
+    .tab-pane {
+        -fx-tab-max-height: 0;
+        -fx-pref-width: $pref-width;
+        -fx-pref-height: 712;
+        -fx-background-color: #202B33;
+        -fx-background-radius: 0 3 3 3;
+        -fx-padding: 8 16 16 16;
+
+        .tab-header-area {
+            visibility: hidden;
+        }
+    }
+
+    .code-tab {
+        -fx-pref-width: 1048;
+        -fx-pref-height: 712;
+
+        .search-field {
+            -fx-pref-width: 304;
+            -fx-pref-height: 40;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+            -fx-background-color: transparent;
+            -fx-border-color: #8A9BA866;
+            -fx-border-width: 1;
+            -fx-border-radius: 3;
+            -fx-prompt-text-fill: #BFCCD680;
+        }
+
+        .code-area {
+            -fx-background-color: #182026;
+            -fx-background-radius: 3;
+            -fx-text-fill: #BFCCD6;
+            -fx-font-family: $regular;
+            -fx-font-size: 14;
+            -fx-wrap-text: true;
+            -fx-pref-width: 704;
+            -fx-pref-height: 680;
+
+            .content {
+                -fx-background-color: #182026;
+            }
+        }
+    }
+
+    .issue-tab {
+        -fx-pref-width: 1016;
+        -fx-hgap: 16;
+        -fx-vgap: 16;
+
+        .issue-card {
+            -fx-pref-width: 328;
+            -fx-pref-height: 216;
+            -fx-background-color: #30404D;
+            -fx-background-radius: 3;
+            -fx-effect: dropshadow(two-pass-box, rgba(16, 22, 26, 0.4), 10, 0, 0, 2);
+
+            .title-text {
+                -fx-font-family: $regular;
+                -fx-font-size: 18;
+                -fx-fill: white;
+            }
+
+            .description-area {
+                @extend %text-area;
+                -fx-pref-width: 296;
+                -fx-pref-height: 104;
+
+                .content {
+                    -fx-padding: 4;
+                }
+            }
+
+            .status-label {
+                -fx-font-family: $regular;
+                -fx-font-size: 14;
+                -fx-pref-width: 64;
+                -fx-pref-height: 32;
+                -fx-alignment: center;
+                -fx-text-fill: white;
+                -fx-background-color: rgba(219, 55, 55, 0.9);
+                -fx-background-radius: 3;
+            }
+        }
+    }
+
+    .commit-tab .commit-point {
+        -fx-pref-width: 512;
+        -fx-pref-height: 80;
+
+        .message-area {
+            @extend %text-area;
+            -fx-text-fill: white;
+            -fx-font-family: 'SF Pro Text Light';
+            -fx-font-size: 16;
+            -fx-pref-width: 260;
+
+            .content {
+                -fx-padding: 0;
+            }
+        }
+    }
+
+    .option-tab {
+
+        %default-button {
+            -fx-pref-width: 184;
+            -fx-pref-height: 32;
+            -fx-font-family: $light;
+            -fx-font-size: 16;
+            -fx-text-fill: white;
+            -fx-background-color: #394B59, $overlay-gradient;
+            -fx-background-radius: 3;
+        }
+
+        %toggle {
+            -fx-pref-width: 32;
+            -fx-pref-height: 16;
+            -fx-background-radius: 10;
+        }
+
+        %label {
+            -fx-font-family: $regular;
+            -fx-font-size: 14;
+        }
+
+        .title-text {
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-fill: white;
+        }
+
+        .language-box {
+            @extend %combo-box;
+            -fx-background-color: #394B59, $overlay-gradient;
+            -fx-background-radius: 3;
+            -fx-pref-width: 184;
+            -fx-pref-height: 32;
+        }
+
+        .description-label {
+            -fx-font-family: $light;
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+        }
+
+        .description-area {
+            @extend %text-area;
+            -fx-text-fill: white;
+            -fx-font-family: 'SF Pro Text Light';
+            -fx-font-size: 16;
+            -fx-pref-width: 384;
+            -fx-pref-height: 144;
+            -fx-border-color: rgba(138, 155, 168, 0.4);
+            -fx-border-radius: 3;
+        }
+
+        .cancel-button {
+            @extend %default-button;
+        }
+
+        .save-button {
+            @extend %default-button;
+            -fx-background-color: #137CBD, $overlay-gradient;
+        }
+
+        .option-label {
+            -fx-font-family: 'SF Pro Text Light';
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+        }
+
+        .private-toggle {
+            @extend %toggle;
+            -fx-background-color: #137CBD;
+        }
+
+        .private-label {
+            @extend %label;
+            -fx-text-fill: #137CBD;
+        }
+
+        .public-toggle {
+            @extend %toggle;
+            -fx-background-color: #0F9960;
+        }
+
+        .public-label {
+            @extend %label;
+            -fx-text-fill: #0F9960;
+        }
+    }
+}
+
+.document-content {
+
+    %split-pane {
+        .split-pane-divider {
+            -fx-background-color: transparent;
+        }
+    }
+
+    .file-explorer {
+        @extend %split-pane;
+        -fx-orientation: horizontal;
+        -fx-pref-width: 1048;
+        -fx-pref-height: 536;
+        -fx-padding: 16;
+        -fx-background-color: #202B33;
+        -fx-background-radius: 3;
+
+        .explore-pane {
+            @extend %split-pane;
+            -fx-orientation: vertical;
+            -fx-background-color: transparent;
+
+            .search-field {
+                -fx-font-size: 16;
+                -fx-text-fill: white;
+                -fx-background-color: transparent;
+                -fx-border-color: #8A9BA866;
+                -fx-border-width: 1;
+                -fx-border-radius: 3;
+                -fx-prompt-text-fill: #BFCCD680;
+            }
+        }
+
+        .view-pane {
+            -fx-pref-width: 704;
+            -fx-pref-height: 504;
+            -fx-border-color: rgba(138, 155, 168, 0.4);
+            -fx-border-radius: 3;
+            -fx-background-color: #30404D;
+            -fx-background-radius: 3;
+
+            .file-pane {
+                -fx-hgap: 16;
+                -fx-vgap: 16;
+                -fx-pref-width: 680;
+                -fx-pref-height: 372;
+                -fx-background-color: transparent;
+
+                .add-box {
+                    -fx-pref-width: 104;
+                    -fx-pref-height: 104;
+                    -fx-alignment: center;
+                    -fx-border-color: rgba(138, 155, 168, 0.4);
+                    -fx-border-radius: 3;
+                    -fx-background-color: rgba(0, 0, 0, 0.3);
+                    -fx-background-radius: 3;
+
+                    .up-path {
+                        -fx-fill: white;
+                        -fx-rotate: 90;
+                    }
+                }
+
+                .file-card {
+                    -fx-alignment: top-center;
+                    -fx-pref-width: 128;
+                    -fx-pref-height: 104;
+                    -fx-background-color: rgba(0, 0, 0, 0.3);
+                    -fx-background-radius: 3;
+
+                    .file-name {
+                        -fx-font-family: $light;
+                        -fx-font-size: 16;
+                        -fx-fill: white;
+                    }
+                }
+            }
+
+            .current-dir {
+                -fx-fill: white;
+                -fx-font-family: $light;
+                -fx-font-size: 22;
+            }
+        }
+    }
+
+    .remove-button {
+        @extend %remove-button;
+    }
+}
+
+// StickyNote
+
+.sticky-note-pane {
+    -fx-padding: 96, 0, 0, 0;
+    -fx-alignment: top-center;
+
+    .note-grid {
+        -fx-max-width: 1088;
+        -fx-pref-height: 224;
+        -fx-hgap: 64;
+
+        .add-note {
+            $width: 224;
+            $height: 224;
+            -fx-pref-width: $width;
+            -fx-pref-height: $height;
+            -fx-background-color: transparent;
+
+            .prompt-text {
+                -fx-font-family: $light;
+                -fx-font-size: 18;
+                -fx-fill: #BFCCD6;
+            }
+
+            .svg-region {
+                -fx-pref-width: $width;
+                -fx-pref-height: $height;
+                -fx-border-color: #8A9BA8;
+            }
+        }
+    }
+
+    .sticky-note {
+        -fx-pref-width: 224;
+        -fx-pref-height: 224;
+
+        .background {
+            -fx-background-color: linear-gradient(to top, #202B33, #394B59);
+        }
+
+        .data-pane {
+            -fx-pref-width: 224;
+            -fx-pref-height: 224;
+
+            .title-field {
+                -fx-background-color: transparent;
+                -fx-text-fill: white;
+                -fx-font-family: $regular;
+                -fx-font-size: 18;
+                -fx-padding: 0;
+            }
+
+            .description-area {
+                @extend %text-area;
+                -fx-pref-width: 192;
+                -fx-pref-height: 112;
+            }
+        }
+    }
+}
+
+// Setting
+
+.setting-pane {
+    -fx-pref-height: 512;
+    -fx-padding: 16, 472, 0, 408;
+    -fx-spacing: 64;
+    -fx-alignment: top-center;
+
+    .title-box {
+        -fx-max-height: 32;
+        -fx-alignment: center;
+        -fx-background-color: transparent;
+
+        .name-field {
+            -fx-pref-width: 96;
+            -fx-font-family: $light;
+            -fx-font-size: 28;
+            -fx-padding: 0;
+            -fx-text-fill: white;
+            -fx-background-color: transparent;
+        }
+
+    }
+
+    .detail-pane {
+        -fx-pref-height: 280;
+        -fx-max-width: 976;
+
+        .description-label,
+        .picture-label {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-text-fill: white;
+        }
+
+        .description-area {
+            @extend %text-area;
+            -fx-pref-width: 656;
+            -fx-pref-height: 240;
+            -fx-padding: 0;
+            -fx-border-color: #48AFF0;
+            -fx-border-radius: 3;
+        }
+
+        .gallery-button,
+        .image-button {
+            -fx-pref-width: 128;
+            -fx-pref-height: 40;
+            -fx-font-family: $regular;
+            -fx-font-size: 18;
+            -fx-text-fill: white;
+            -fx-background-color: #202B33, $overlay-gradient;
+        }
+    }
+
+    .remove-button {
+        @extend %remove-button;
+        -fx-max-width: 208;
+    }
+
+}
+
+// TaskPane
+
+.task-pane {
+    -fx-padding: 24, 128, 0, 64;
+    -fx-spacing: 36;
+    -fx-alignment: top-center;
+
+    .title-box {
+        -fx-alignment: center;
+        -fx-background-color: transparent;
+        -fx-max-height: 40;
+
+        .title-field {
+            -fx-font-family: $regular;
+            -fx-font-size: 28;
+            -fx-text-fill: white;
+            -fx-pref-width: 144;
+            -fx-background-color: transparent;
+        }
+
+        .send-button {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-text-fill: white;
+            -fx-pref-height: 40;
+            -fx-padding: 8, 12;
+            -fx-background-color: #137CBD, $overlay-gradient;
+            -fx-background-radius: 3;
+        }
+    }
+
+    .content-box {
+        -fx-alignment: center;
+        -fx-spacing: 246;
+
+        .subtask-pane {
+            $pref-width: 440;
+            -fx-pref-width: $pref-width;
+
+            .label-text {
+                -fx-font-family: $light;
+                -fx-font-size: 22;
+                -fx-fill: white;
+            }
+
+            .add-field {
+                -fx-padding: 16, 0, 0, 56;
+                -fx-font-family: $regular;
+                -fx-font-size: 22;
+                -fx-text-fill: white;
+                -fx-border-color: #8A9BA8;
+                -fx-border-radius: 3;
+                -fx-prompt-text-fill: #BFCCD6;
+                -fx-background-color: rgba(0, 0, 0, 0.6);
+                -fx-background-radius: 3;
+                -fx-pref-width: $pref-width;
+                -fx-max-height: 56;
+            }
+
+            .subtask-box {
+                -fx-spacing: 16;
+                -fx-background-color: transparent;
+            }
+        }
+
+        .task-note-pane {
+            -fx-pref-width: 416;
+
+            .title-text {
+                -fx-font-family: $light;
+                -fx-font-size: 22;
+                -fx-fill: white;
+            }
+
+            .add-area {
+                @extend %text-area;
+                -fx-pref-width: 416;
+                -fx-pref-height: 120;
+                -fx-border-color: #8A9BA8;
+                -fx-border-radius: 3;
+            }
+
+            .note-box {
+                @extend %text-area;
+                -fx-spacing: 16;
+                -fx-pref-width: 416;
+            }
+        }
+    }
+
+    .deadline-box {
+        -fx-alignment: baseline-left;
+
+        .label-text {
+            -fx-font-family: $light;
+            -fx-font-size: 22;
+            -fx-fill: white;
+        }
+
+        .button {
+            -fx-background-color: transparent;
+            -fx-text-fill: white;
+            -fx-font-family: $regular;
+            -fx-font-size: 16;
+            -fx-pref-width: 128;
+            -fx-pref-height: 32;
+        }
+    }
+
+    .remove-button {
+        @extend %remove-button;
+    }
+}
+
+// IssuePane
+
+.issue-pane {
+    -fx-padding: 24, 128, 0, 64;
+    -fx-spacing: 40;
+    -fx-alignment: top-center;
+
+    .title-box {
+        -fx-alignment: center;
+        -fx-background-color: transparent;
+        -fx-max-height: 40;
+
+        .title-field {
+            -fx-font-family: $regular;
+            -fx-font-size: 28;
+            -fx-text-fill: white;
+            -fx-pref-width: 196;
+            -fx-background-color: transparent;
+        }
+    }
+
+    .issue-box {
+        -fx-spacing: 192;
+        -fx-alignment: top-center;
+
+        .content-pane {
+            -fx-pref-width: 440;
+            -fx-pref-height: 280;
+            -fx-background-color: transparent;
+
+            .title-text {
+                -fx-font-family: $light;
+                -fx-font-size: 22;
+                -fx-fill: white;
+            }
+
+            .area {
+                @extend %text-area;
+                -fx-pref-width: 440;
+                -fx-pref-height: 232;
+                -fx-border-color: #48AFF0;
+                -fx-border-radius: 3;
+            }
+        }
+    }
+
+    .toggle {
+
+    }
+
+    .kind-label {
+        -fx-text-fill: white;
+        -fx-font-family: $light;
+        -fx-font-size: 22;
+    }
+
+    .remove-button {
+        @extend %remove-button;
+    }
+}
+
+.attachment-pane {
+    -fx-min-width: 384;
+    -fx-min-height: 160;
+
+    .title-text {
+        -fx-font-family: $regular;
+        -fx-font-size: 22;
+        -fx-fill: white;
+    }
+
+    .file-pane {
+        -fx-background-color: transparent;
+
+        .file-card {
+            -fx-alignment: top-center;
+            -fx-pref-width: 128;
+            -fx-pref-height: 104;
+            -fx-background-color: rgba(0, 0, 0, 0.3);
+            -fx-background-radius: 3;
+
+            .file-name {
+                -fx-font-family: $light;
+                -fx-font-size: 16;
+                -fx-fill: white;
+            }
+        }
+    }
+}
