@@ -6,7 +6,6 @@ managing my projects and ideas. It's also a music app for my free time.
 - Spring Boot
 - Spring ORM
 - Hibernate with SQLite Dialect
-- Sass Plugin
 - Lombok
 - Batik
 
